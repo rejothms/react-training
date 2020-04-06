@@ -29,7 +29,7 @@ class AutoComplete extends React.Component {
 
     const filteredOptions = vehicles.filter(
       (optionName) =>
-        optionName.toLowerCase().indexOf('f') > -1
+        optionName.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
 
     this.setState({filteredOptions: filteredOptions});
