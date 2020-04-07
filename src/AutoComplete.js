@@ -11,26 +11,22 @@ class AutoComplete extends React.Component {
     super(props);
 
       this.state = {
-      
         userInput: '',
         filteredOptions: []
-       
-
       }
- 
-  
-
   }
 
   onChange = (e) => {
 
     const { vehicles } = this.props;
     const userInput = e.currentTarget.value;
-
+    console.log(userInput)
     const filteredOptions = vehicles.filter(
       (optionName) =>
         optionName.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
+
+    console.log(filteredOptions);
 
     this.setState({filteredOptions: filteredOptions});
 
@@ -44,7 +40,7 @@ class AutoComplete extends React.Component {
 
     const { vehicles } = this.props;
     const { filteredOptions } = this.state;
-    console.log(vehicles);
+   // console.log(vehicles);
     return (
       <div>
        <input type="text" onChange={this.onChange}></input>
