@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import '../App.css'
-import { fetchList, fetchPromise } from '../services/fetchItems';
+import { fetchList, fetchPromise, testAxios } from '../services/fetchItems';
+
+import axios from 'axios';
 
 
 class NewCars extends React.Component {
@@ -18,7 +20,27 @@ class NewCars extends React.Component {
   }
 
 
-  componentDidMount() {
+  async componentDidMount() {
+
+
+    let result = await testAxios();
+    
+    console.log(result);
+
+
+
+
+
+
+/*    
+    axios.get('http://localhost:3004/lists')
+    .then(response=> {
+       console.log(response);
+        this.setState({ listItem: data })
+    })
+    .catch(error => {
+
+    })  */
 
     /*
     fetch('http://localhost:3000/lists')
@@ -43,7 +65,10 @@ class NewCars extends React.Component {
       this.fetchData();
       console.log('b'); */
 
-      this.fetDataPromise()
+     // this.fetDataPromise()
+
+
+
   }
 
   fetDataPromise = async() => {

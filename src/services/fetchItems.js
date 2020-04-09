@@ -1,3 +1,5 @@
+import API from '../config/API';
+
 export function fetchList() {
 
     return fetch('http://localhost:3000/lists')
@@ -17,6 +19,21 @@ export function fetchList() {
 
 }
 
+export async function testAxios() {
+
+    try {
+    //let result = axios.get('http://localhost:3004/lists')
+    let result = await API.get('/lists');
+    return result;
+    }catch(error) {
+        console.log(error)
+        //return error.config || error.response;
+    }
+    
+
+}
+
+
 
 export function fetchPromise() {
 
@@ -24,6 +41,7 @@ export function fetchPromise() {
 
         try {
             let items = await fetch('http://localhost:3000/lists');
+          //let items = await axios.get('http://localhost:3000/lists')
             let data = items.json();
             resolve(data);
         } catch (error) {
